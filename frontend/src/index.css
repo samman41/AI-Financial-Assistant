@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-200;
+    background-color: #000000;
+    color: #dff2fd;
+  }
+}
+
+/* ── Scrollbars ──────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #0a0a0a; }
+::-webkit-scrollbar-thumb  { background: #1a87c0; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #89cff0; }
+
+/* ── Glassmorphism ───────────────────────────────── */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(137, 207, 240, 0.10);
+}
+.glass-card {
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(137, 207, 240, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+}
+.glass-input {
+  background-color: #0d0d0d;
+  border: 1px solid #0f5480;
+  color: #dff2fd;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  outline: none;
+  transition: all 0.15s;
+  width: 100%;
+}
+.glass-input:focus {
+  box-shadow: 0 0 0 2px #89cff0;
+  border-color: transparent;
+}
+
+/* ── Gradient cards ──────────────────────────────── */
+.grad-card-blue    { background: linear-gradient(135deg, #093c5e 0%, #1a87c0 100%); }
+.grad-card-emerald { background: linear-gradient(135deg, #0f5480 0%, #2fa1da 100%); }
+.grad-card-dark    { background: linear-gradient(135deg, #000000 0%, #111111 100%); }
+
+/* ── Baby Blue AI Glow ───────────────────────────── */
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 15px -3px rgba(137,207,240,0.35); }
+  50%     { box-shadow: 0 0 25px  2px rgba(137,207,240,0.60); }
+}
+.ai-glow { animation: pulse-glow 3s infinite; }
+
+@keyframes pulse-glow-secondary {
+  0%,100% { box-shadow: 0 0 15px -3px rgba(47,161,218,0.30); }
+  50%     { box-shadow: 0 0 25px  2px rgba(47,161,218,0.55); }
+}
+.ai-glow-emerald { animation: pulse-glow-secondary 3.5s infinite; }
+
+/* ── Fade-in ─────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+
+/* ── Tables ──────────────────────────────────────── */
+.ledger-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #89cff0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #0f5480;
+}
+.ledger-table td {
+  padding: 0.875rem 1rem;
+  color: #b8e6fa;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #051f32;
+}
