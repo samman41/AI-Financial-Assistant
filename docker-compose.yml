@@ -23,8 +23,8 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=mysql+pymysql://assistant_user:${DB_PASSWORD}@db/financial_assistant
-      - SECRET_KEY=my-secret-key
-      - OPENAI_API_KEY=my-openai-key
+      - SECRET_KEY=${SECRET_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     depends_on:
       - db
 
