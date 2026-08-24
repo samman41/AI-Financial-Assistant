@@ -60,7 +60,7 @@ Ask me questions about your monthly totals, vendor fees, or ask for recommendati
         content: msg.content
       }));
 
-      const response = await api.post('/chat/', {
+      const response = await api.post('/api/chat/', {
         message: prompt,
         history: formattedHistory
       });

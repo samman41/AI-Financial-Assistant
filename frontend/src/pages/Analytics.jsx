@@ -21,7 +21,7 @@ const Analytics = () => {
   const fetchAnalytics = async () => {
     setLoading(true);
     try {
-      const res = await api.get('/insights/analytics');
+      const res = await api.get('/api/insights/analytics');
       setAnalytics(res.data);
     } catch (err) {
       console.error("Failed to load analytics details:", err);

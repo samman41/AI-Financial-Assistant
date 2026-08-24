@@ -60,7 +60,7 @@ const Transactions = () => {
     setLoading(true);
     try {
       const skip = (page - 1) * limit;
-      let url = `/transactions/?skip=${skip}&limit=${limit}&sort_by=${sortBy}&sort_order=${sortOrder}`;
+      let url = `/api/transactions/?skip=${skip}&limit=${limit}&sort_by=${sortBy}&sort_order=${sortOrder}`;
       
       if (search) url += `&search=${encodeURIComponent(search)}`;
       if (category) url += `&category=${encodeURIComponent(category)}`;
@@ -71,7 +71,7 @@ const Transactions = () => {
       setTransactions(response.data);
       
       // Let's query count summaries
-      const summaryRes = await api.get('/transactions/summary');
+      const summaryRes = await api.get('/api/transactions/summary');
       setTotalCount(summaryRes.data.total_count);
     } catch (err) {
       console.error("Failed to load transactions:", err);
@@ -94,7 +94,7 @@ const Transactions = () => {
     setIsScanning(true);
     setSuccessMsg('');
     try {
-      await api.post('/transactions/scan-anomalies');
+      await api.post('/api/transactions/scan-anomalies');
       setSuccessMsg("System successfully scanned your ledger. Anomalies flags updated.");
       fetchTransactions();
     } catch (err) {
@@ -107,7 +107,7 @@ const Transactions = () => {
   const handleDelete = async (txId) => {
     if (window.confirm("Are you sure you want to delete this transaction record?")) {
       try {
-        await api.delete(`/transactions/${txId}`);
+        await api.delete(`/api/transactions/${txId}`);
         setSuccessMsg("Transaction deleted successfully.");
         fetchTransactions();
       } catch (err) {

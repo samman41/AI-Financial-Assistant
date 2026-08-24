@@ -50,7 +50,7 @@ const Forecasting = () => {
   const fetchForecast = async () => {
     setLoading(true);
     try {
-      const res = await api.get('/insights/forecast');
+      const res = await api.get('/api/insights/forecast');
       setForecastData(res.data);
     } catch (err) {
       console.error("Forecasting load failed:", err);
