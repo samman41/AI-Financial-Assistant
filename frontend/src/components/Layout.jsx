@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
           <div className="p-2 rounded-lg text-black" style={{ backgroundColor: '#89cff0' }}>
             <Building size={20} />
           </div>
-          <span className="font-bold text-lg text-white">Antigravity Finance</span>
+          <span className="font-bold text-lg text-white">Financial Assistant</span>
         </div>
 
         <div className="flex items-center space-x-4">
@@ -82,7 +82,7 @@ const Layout = ({ children }) => {
             <div className="flex justify-between items-center pb-6 border-b" style={{ borderColor: '#0f5480' }}>
               <span className="font-bold text-white flex items-center space-x-2">
                 <Building style={{ color: '#89cff0' }} />
-                <span>{user?.company_name || 'Antigravity Finance'}</span>
+                <span>{user?.company_name || 'Financial Assistant'}</span>
               </span>
               <button onClick={() => setMobileMenuOpen(false)} className="p-1 rounded">
                 <X size={20} style={{ color: '#89cff0' }} />
