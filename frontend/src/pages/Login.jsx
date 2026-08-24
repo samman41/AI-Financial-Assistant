@@ -43,7 +43,7 @@ const Login = () => {
           <div className="inline-flex p-3 rounded-xl text-black shadow-premium-blue mb-3" style={{ backgroundColor: '#89cff0' }}>
             <Building size={24} />
           </div>
-          <h2 className="text-2xl font-extrabold text-white tracking-tight">Antigravity Finance</h2>
+          <h2 className="text-2xl font-extrabold text-white tracking-tight">Financial Assistant</h2>
           <p className="text-sm mt-1.5" style={{ color: '#5ab8e8' }}>AI Financial Assistant for SMBs</p>
         </div>
 
