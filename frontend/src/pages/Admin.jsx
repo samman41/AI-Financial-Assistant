@@ -30,19 +30,19 @@ const Admin = () => {
     setActionMsg('');
     try {
       // 1. Fetch users list
-      const usersRes = await api.get('/admin/users');
+      const usersRes = await api.get('/api/admin/users');
       setUsersList(usersRes.data);
 
       // 2. Fetch health diagnostics
-      const healthRes = await api.get('/admin/health');
+      const healthRes = await api.get('/api/admin/health');
       setHealth(healthRes.data);
 
       // 3. Fetch token/request usage stats
-      const usageRes = await api.get('/admin/ai-usage');
+      const usageRes = await api.get('/api/admin/ai-usage');
       setAiStats(usageRes.data);
 
       // 4. Fetch uploaded files
-      const filesRes = await api.get('/admin/files');
+      const filesRes = await api.get('/api/admin/files');
       setFilesList(filesRes.data);
     } catch (err) {
       console.error("Failed to load admin telemetry:", err);
@@ -64,7 +64,7 @@ const Admin = () => {
     }
     if (window.confirm(`MANDATORY CONFIRMATION: Are you sure you want to permanently delete user account ${email}? This action cascades and immediately deletes all their transactions and settings.`)) {
       try {
-        await api.delete(`/admin/users/${userId}`);
+        await api.delete(`/api/admin/users/${userId}`);
         setActionMsg(`Account ${email} successfully deleted.`);
         loadAdminData();
       } catch (err) {

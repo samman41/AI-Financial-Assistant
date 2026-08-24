@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
       if (token) {
         try {
-          const response = await api.get('/auth/me');
+          const response = await api.get('/api/auth/me');
           setUser(response.data);
           setTheme(response.data.theme || 'dark');
         } catch (error) {
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       formData.append('username', email);
       formData.append('password', password);
 
-      const response = await api.post('/auth/login', formData, {
+      const response = await api.post('/api/auth/login', formData, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
       
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       setToken(access_token);
       
       // Fetch user info
-      const userResponse = await api.get('/auth/me');
+      const userResponse = await api.get('/api/auth/me');
       setUser(userResponse.data);
       setTheme(userResponse.data.theme || 'dark');
       return { success: true };
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password, fullName, companyName, currency, taxRate) => {
     try {
-      await api.post('/auth/register', {
+      await api.post('/api/auth/register', {
         email,
         password,
         full_name: fullName,
@@ -94,7 +94,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (profileData) => {
     try {
-      const response = await api.put('/auth/profile', profileData);
+      const response = await api.put('/api/auth/profile', profileData);
       setUser(response.data);
       if (profileData.theme) {
         setTheme(profileData.theme);

@@ -57,11 +57,11 @@ const Dashboard = () => {
     setLoading(true);
     try {
       // 1. Load general analytics
-      const analyticsRes = await api.get('/insights/analytics');
+      const analyticsRes = await api.get('/api/insights/analytics');
       setStats(analyticsRes.data);
 
       // 2. Load recent transactions
-      const txRes = await api.get('/transactions?limit=6');
+      const txRes = await api.get('/api/transactions?limit=6');
       setRecentTx(txRes.data);
     } catch (err) {
       console.error("Dashboard aggregation failed:", err);
@@ -73,7 +73,7 @@ const Dashboard = () => {
   const loadAIInsights = async () => {
     setInsightsLoading(true);
     try {
-      const insightsRes = await api.get('/insights');
+      const insightsRes = await api.get('/api/insights');
       setInsights(insightsRes.data.insights || []);
     } catch (err) {
       console.error("Insights loading failure:", err);

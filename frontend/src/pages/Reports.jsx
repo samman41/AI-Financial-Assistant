@@ -38,7 +38,7 @@ const Reports = () => {
     else setExcelLoading(true);
 
     try {
-      const response = await api.get(`/reports/${format}?month=${month}&year=${year}`, {
+      const response = await api.get(`/api/reports/${format}?month=${month}&year=${year}`, {
         responseType: 'blob' // Important: handle binary files
       });
 

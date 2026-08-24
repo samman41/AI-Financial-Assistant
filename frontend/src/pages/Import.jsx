@@ -52,7 +52,7 @@ const Import = () => {
     formData.append('file', file);
 
     try {
-      const response = await api.post('/import/upload', formData, {
+      const response = await api.post('/api/import/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
@@ -103,7 +103,7 @@ const Import = () => {
         }))
       };
 
-      await api.post(`/import/commit?upload_id=${uploadId}`, payload);
+      await api.post(`/api/import/commit?upload_id=${uploadId}`, payload);
       setStep(3);
     } catch (err) {
       console.error(err);

@@ -89,7 +89,7 @@ const TransactionModal = ({ isOpen, onClose, onSave, transaction = null }) => {
     setError('');
     try {
       // Direct prediction helper query
-      const response = await api.post('/transactions/', {
+      const response = await api.post('/api/transactions/', {
         ...formData,
         category: 'Uncategorized',
         amount: parseFloat(formData.amount) || 1.0,
@@ -143,10 +143,10 @@ const TransactionModal = ({ isOpen, onClose, onSave, transaction = null }) => {
       let response;
       if (transaction) {
         // Edit mode
-        response = await api.put(`/transactions/${transaction.id}`, payload);
+        response = await api.put(`/api/transactions/${transaction.id}`, payload);
       } else {
         // Add mode
-        response = await api.post('/transactions/', payload);
+        response = await api.post('/api/transactions/', payload);
       }
       onSave(response.data);
       onClose();
